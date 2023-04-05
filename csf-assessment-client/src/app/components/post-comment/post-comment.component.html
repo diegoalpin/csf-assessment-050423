@@ -1,0 +1,14 @@
+<p>post-comment works!</p>
+<h2>Post Comment for {{title}}</h2>
+
+<form [formGroup]="form" (ngSubmit)="submitComment()">
+<input type="hidden" formControlName="moviename" [ngModel]="title">
+Name: <input type="text" size="30" formControlName="name"><br><br>
+Rating: <input type="number" min="1" max="5" formControlName="rating"><br><br>
+Comment: <br><br>
+<textarea cols="30" rows="10" formControlName="comment"></textarea><br><br>
+<button type="button" [routerLink]="['/view1',previousTitle]">Back</button>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="submit" [disabled]="form.invalid">Post</button>
+
+</form>

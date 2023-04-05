@@ -1,0 +1,13 @@
+.thumbnail{
+    max-height: 150px;
+}
+.reviewdisplay{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+}
+
+.card{
+    border-style:dotted;
+    border-color: black;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,43 @@
+<p>movie-review-list works!</p>
+<h2 class="reviewdisplay">Search result for {{ moviename }}</h2>
+<button type="button" routerLink="['/']">Back</button>
+
+<table class="reviewdisplay" *ngIf="notempty; else noresult">
+  <tr *ngFor="let review of reviews;let idx=index">
+    <div class="card">
+      <td></td>
+      <td>
+        <div *ngIf="review.image !== 'default'; else placeholder">
+          <img class="thumbnail" [src]="review.image" />
+        </div>
+        <!-- {{ review.image.substring(0, 20) }} -->
+      </td>
+      <td>
+        {{ review.title }} &nbsp;&nbsp;&nbsp; {{ review.rating }} <br /><br />
+        Headline : {{ review.headline }} <br /><br />
+        Summary : {{ review.summary }} <br /><br />
+        Comments: {{ review.commentCount }} <br /><br />
+        
+        
+        <button type="button" (click)="setLastSearch()" [routerLink]="['/view2',review.title]">Comment</button>
+      </td>
+      <br /><br />
+    </div>
+  </tr>
+</table>
+
+<ng-template #placeholder>
+  <img
+    class="thumbnail"
+    [src]="notavailableimage"
+  />
+  Get the images
+</ng-template>
+
+<ng-template #noresult>
+    <!-- <img
+      class="thumbnail"
+      src="/src/images/icons/placeholder.jpg"
+    /> -->
+    <h2>Your Search produces no result</h2>
+  </ng-template>
